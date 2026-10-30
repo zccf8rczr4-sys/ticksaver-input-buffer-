@@ -1,0 +1,40 @@
+TickSaver - mod de buffer de inputs para Geometry Dash (Geode)
+==============================================================
+
+COMO INSTALARLO (en la PC con Windows)
+1. Descomprimi este .zip completo (click derecho > Extraer todo).
+2. Abri la carpeta y hace doble click en  compilar.bat
+   - Si Windows dice "Windows protegio tu PC": toca "Mas informacion"
+     y despues "Ejecutar de todas formas".
+   - Cuando pregunte si permitis cambios en el equipo, apreta "Si".
+3. Espera. La primera vez tarda entre 30 y 60 minutos porque instala
+   las herramientas de C++ de Microsoft (unos 6-8 GB). No cierres la
+   ventana negra ni el instalador de Visual Studio si aparece.
+4. Al final dice "LISTO!". El mod queda instalado en Geometry Dash
+   (y una copia en tu Escritorio: local.ticksaver.geode).
+5. Abri Geometry Dash. Si Geode pregunta, reinicia el juego.
+
+Si algo falla: sacale una captura a la ventana y mandasela a Claude.
+
+COMO SE USA
+- F6  = activar / desactivar
+- F7  = cambiar el maximo de ticks (2, 4, 8, 16, 24, 32, 40)
+- F8  = modo adaptativo on/off (viene prendido)
+- Arriba a la izquierda aparece "TickSaver auto 8t / wave 4t salvados: N".
+
+MODO ADAPTATIVO
+Los ticks se ajustan solos. Si te moris por un click que se podia
+salvar con mas ticks, el texto se pone NARANJA y la ventana crece para
+salvarte la proxima vez. Si los clicks te alcanzan con menos ticks, se
+achica sola de a poco. Aprende por separado para suelo, wave y nave y
+se acuerda entre sesiones. Al apagarlo y prenderlo (F8) empieza de cero.
+- En Geode > TickSaver > Ajustes podes cambiar todo: la ventana de
+  correccion, wave y nave por separado, asistencia de orbes, "solo en
+  modo practica", el indicador y las teclas.
+
+4 ticks = 1 frame a 60 FPS. Recomendado: entre 8 y 16 ticks.
+
+AVISO: es un cheat. No lo uses para records, listas o cosas que
+quieras mostrar como legitimas; algunos niveles detectan buffers.
+
+Motor de prediccion basado en Afterflow por prsevend (licencia MIT).

@@ -1,0 +1,150 @@
+{
+    "geode": "5.11.2",
+    "gd": {
+        "win": "2.2081",
+        "android": "2.2081",
+        "mac": "2.2081",
+        "ios": "2.2081"
+    },
+    "id": "local.ticksaver",
+    "name": "TickSaver",
+    "version": "v1.1.0",
+    "developer": "local",
+    "description": "Buffer de inputs predictivo: corrige clicks y sueltes tempranos para que caigan en el tick justo.",
+    "tags": [
+        "gameplay",
+        "utility"
+    ],
+    "settings": {
+        "general-title": {
+            "type": "title",
+            "name": "General"
+        },
+        "enabled": {
+            "type": "bool",
+            "name": "Activado",
+            "description": "Activa o desactiva la corrección de inputs. También se puede alternar con la tecla de abajo.",
+            "default": true
+        },
+        "adaptive": {
+            "type": "bool",
+            "name": "Modo adaptativo",
+            "description": "Los ticks se ajustan solos segun lo que necesitas: si te moris por un click que se podia salvar con mas ticks, la ventana crece; si te alcanza con menos, se achica sola. Aprende por separado para suelo, wave y nave, y se guarda entre sesiones. Las ventanas de abajo pasan a ser el MAXIMO que puede usar.",
+            "default": true
+        },
+        "max-delay": {
+            "type": "int",
+            "name": "Ventana maxima (ticks)",
+            "description": "Cuantos ticks como maximo puede retrasar un click temprano. Con el modo adaptativo es el techo hasta donde puede crecer solo. 4 ticks = 1 frame a 60 FPS.",
+            "default": 24,
+            "min": 0,
+            "max": 60,
+            "control": {
+                "slider": true,
+                "arrows": true,
+                "big-arrows": false,
+                "input": true
+            }
+        },
+        "max-delay-wave": {
+            "type": "int",
+            "name": "Ventana maxima en wave (ticks)",
+            "description": "Lo mismo, pero solo para la wave (conviene más bajo porque la wave es muy sensible).",
+            "default": 12,
+            "min": 0,
+            "max": 40,
+            "control": {
+                "slider": true,
+                "arrows": true,
+                "big-arrows": false,
+                "input": true
+            }
+        },
+        "max-delay-ship": {
+            "type": "int",
+            "name": "Ventana maxima en ship (ticks)",
+            "description": "Lo mismo, pero para la nave. Ponelo en 0 para no tocar la nave.",
+            "default": 4,
+            "min": 0,
+            "max": 16,
+            "control": {
+                "slider": true,
+                "arrows": true,
+                "big-arrows": false,
+                "input": true
+            }
+        },
+        "fix-releases": {
+            "type": "bool",
+            "name": "Corregir sueltes tempranos",
+            "description": "Además de los clicks, también corrige cuando soltás el botón demasiado pronto (ship, wave, robot, swing...).",
+            "default": true
+        },
+        "orb-assist": {
+            "type": "bool",
+            "name": "Asistencia de orbes",
+            "description": "Si clickeás un poquito antes de llegar a un orbe, espera al momento en que el click usa el orbe.",
+            "default": true
+        },
+        "practice-only": {
+            "type": "bool",
+            "name": "Solo en modo práctica",
+            "description": "Si está activado, el mod solo funciona en modo práctica (para entrenar partes difíciles).",
+            "default": false
+        },
+        "budget-ms": {
+            "type": "float",
+            "name": "Tiempo de cálculo por click (ms)",
+            "description": "Cuánto tiempo puede pensar el mod en cada click. Si tu PC es lenta y notás tirones, bajalo.",
+            "default": 8.0,
+            "min": 1.0,
+            "max": 16.0,
+            "control": {
+                "slider": true,
+                "arrows": false,
+                "input": true
+            }
+        },
+        "hud-title": {
+            "type": "title",
+            "name": "Pantalla"
+        },
+        "show-hud": {
+            "type": "bool",
+            "name": "Mostrar indicador",
+            "description": "Muestra un texto chiquito arriba a la izquierda con el estado del mod y cuántos clicks te salvó en este intento.",
+            "default": true
+        },
+        "keys-title": {
+            "type": "title",
+            "name": "Teclas"
+        },
+        "keybind-toggle": {
+            "type": "keybind",
+            "name": "Activar / desactivar",
+            "description": "Prende o apaga el mod.",
+            "category": "gameplay",
+            "default": [
+                "F6"
+            ]
+        },
+        "keybind-preset": {
+            "type": "keybind",
+            "name": "Cambiar intensidad / maximo",
+            "description": "Pasa por los niveles: 2 / 4 / 8 / 16 / 24 / 32 / 40 ticks.",
+            "category": "gameplay",
+            "default": [
+                "F7"
+            ]
+        },
+        "keybind-adaptive": {
+            "type": "keybind",
+            "name": "Modo adaptativo on/off",
+            "description": "Prende o apaga el modo adaptativo. Al prenderlo empieza a aprender de cero.",
+            "category": "gameplay",
+            "default": [
+                "F8"
+            ]
+        }
+    }
+}
