@@ -9,7 +9,7 @@
     "id": "local.ticksaver",
     "name": "TickSaver",
     "version": "v1.1.0",
-    "developer": "local",
+    "developer": "4y5",
     "description": "Buffer de inputs predictivo: corrige clicks y sueltes tempranos para que caigan en el tick justo.",
     "tags": [
         "gameplay",
