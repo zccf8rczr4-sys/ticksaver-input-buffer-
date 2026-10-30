@@ -1,0 +1,63 @@
+name: Compilar TickSaver
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "**"
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+        - name: Windows
+          os: windows-latest
+
+        - name: Android32
+          os: ubuntu-latest
+          target: Android32
+
+        - name: Android64
+          os: ubuntu-latest
+          target: Android64
+
+    name: ${{ matrix.config.name }}
+    runs-on: ${{ matrix.config.os }}
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Compilar el mod
+        uses: geode-sdk/build-geode-mod@main
+        with:
+          combine: true
+          target: ${{ matrix.config.target }}
+          path: ticksaver
+
+  package:
+    name: Empaquetar
+    runs-on: ubuntu-latest
+    needs: ['build']
+
+    steps:
+      - uses: geode-sdk/build-geode-mod/combine@main
+        id: build
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: TickSaver
+          path: ${{ steps.build.outputs.build-output }}
+
+      # cuando publicas un Release, adjunta el .geode para que la gente lo baje directo
+      - name: Adjuntar al Release
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ steps.build.outputs.build-output }}/*.geode
